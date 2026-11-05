@@ -23,47 +23,68 @@
     </header>
 
     <section class="intro">
-      <h1>Rez budovy.</h1>
-      <p>Klikni na miestnosť — ľavá / pravá strana okolo diery.</p>
+      <h1>Rolka s dierou v strede.</h1>
+      <p>Klikni na poschodie rolky alebo na miestnosť v reze.</p>
     </section>
 
-    <section class="model" id="veza">
+    <section class="stage" id="veza">
+      <div class="roll-wrap" aria-label="Rolka — poschodia">
+        <svg class="roll-svg" viewBox="0 0 360 540" role="img" aria-labelledby="roll-title">
+          <title id="roll-title">HAJZEL PAPIER — klikateľná rolka</title>
+          <ellipse cx="180" cy="505" rx="130" ry="16" fill="rgba(0,0,0,0.1)" />
+
+          <g class="bands">
+            <path class="band" data-floor="1" d="M50 415 V365 H310 V415 C310 445 252 470 180 470 C108 470 50 445 50 415 Z" fill="#2a3140" />
+            <path class="band" data-floor="2" d="M50 365 V305 H310 V365 C310 395 252 420 180 420 C108 420 50 395 50 365 Z" fill="#96a0aa" />
+            <path class="band" data-floor="3" d="M50 305 V245 H310 V305 C310 335 252 360 180 360 C108 360 50 335 50 305 Z" fill="#5f9bc8" />
+            <path class="band" data-floor="4" d="M50 245 V185 H310 V245 C310 275 252 300 180 300 C108 300 50 275 50 245 Z" fill="#e2c043" />
+            <path class="band" data-floor="5" d="M50 185 V125 H310 V185 C310 215 252 240 180 240 C108 240 50 215 50 185 Z" fill="#e39274" />
+            <path class="band" data-floor="park" d="M50 125 V85 H310 V125 C310 155 252 180 180 180 C108 180 50 155 50 125 Z" fill="#6f9458" />
+          </g>
+
+          <g fill="none" stroke="#111" stroke-width="5" pointer-events="none">
+            <path d="M50 85 V415" />
+            <path d="M310 85 V415" />
+            <path d="M50 415 C50 445 108 470 180 470 C252 470 310 445 310 415" />
+            <path d="M50 365 C50 395 108 420 180 420 C252 420 310 395 310 365" />
+            <path d="M50 305 C50 335 108 360 180 360 C252 360 310 335 310 305" />
+            <path d="M50 245 C50 275 108 300 180 300 C252 300 310 275 310 245" />
+            <path d="M50 185 C50 215 108 240 180 240 C252 240 310 215 310 185" />
+            <path d="M50 125 C50 155 108 180 180 180 C252 180 310 155 310 125" />
+          </g>
+
+          <ellipse class="band lid" data-floor="park" cx="180" cy="85" rx="130" ry="42" fill="#81a86a" stroke="#111" stroke-width="5" />
+          <ellipse cx="180" cy="85" rx="46" ry="16" fill="#141814" stroke="#111" stroke-width="4" pointer-events="none" />
+        </svg>
+        <p class="roll-hint">klikni poschodie</p>
+      </div>
+
       <div class="cut" role="tablist" aria-label="Miestnosti veže">
-        <button
-          type="button"
-          class="cell park"
-          role="tab"
-          id="tab-park"
-          data-room="park"
-          aria-selected="false"
-          aria-controls="panel-park"
-        >
-          eko-park ♥
-        </button>
+        <button type="button" class="cell park" role="tab" id="tab-park" data-room="park" data-floor="park" aria-selected="false" aria-controls="panel-park">eko-park ♥</button>
 
-        <button type="button" class="cell c-mackafe" role="tab" id="tab-mackafe" data-room="mackafe" aria-selected="false" aria-controls="panel-mackafe">MačKafé</button>
+        <button type="button" class="cell c-mackafe" role="tab" id="tab-mackafe" data-room="mackafe" data-floor="5" aria-selected="false" aria-controls="panel-mackafe">MačKafé</button>
         <div class="shaft" aria-hidden="true"></div>
-        <button type="button" class="cell c-resto" role="tab" id="tab-resto" data-room="resto" aria-selected="false" aria-controls="panel-resto">Reštaurácie</button>
+        <button type="button" class="cell c-resto" role="tab" id="tab-resto" data-room="resto" data-floor="5" aria-selected="false" aria-controls="panel-resto">Reštaurácie</button>
 
-        <button type="button" class="cell c-potraviny" role="tab" id="tab-potraviny" data-room="potraviny" aria-selected="false" aria-controls="panel-potraviny">Potraviny<br /><small>100% sk</small></button>
+        <button type="button" class="cell c-potraviny" role="tab" id="tab-potraviny" data-room="potraviny" data-floor="4" aria-selected="false" aria-controls="panel-potraviny">Potraviny<br /><small>100% sk</small></button>
         <div class="shaft" aria-hidden="true"></div>
-        <button type="button" class="cell c-pokladna" role="tab" id="tab-pokladna" data-room="pokladna" aria-selected="false" aria-controls="panel-pokladna">Pokladňa</button>
+        <button type="button" class="cell c-pokladna" role="tab" id="tab-pokladna" data-room="pokladna" data-floor="4" aria-selected="false" aria-controls="panel-pokladna">Pokladňa</button>
 
-        <button type="button" class="cell c-oblecenie is-on" role="tab" id="tab-oblecenie" data-room="oblecenie" aria-selected="true" aria-controls="panel-oblecenie">Oblečenie</button>
+        <button type="button" class="cell c-oblecenie is-on" role="tab" id="tab-oblecenie" data-room="oblecenie" data-floor="3" aria-selected="true" aria-controls="panel-oblecenie">Oblečenie</button>
         <div class="shaft" aria-hidden="true"></div>
-        <button type="button" class="cell c-salon" role="tab" id="tab-salon" data-room="salon" aria-selected="false" aria-controls="panel-salon">Salón</button>
+        <button type="button" class="cell c-salon" role="tab" id="tab-salon" data-room="salon" data-floor="3" aria-selected="false" aria-controls="panel-salon">Salón</button>
 
-        <button type="button" class="cell c-fitko" role="tab" id="tab-fitko" data-room="fitko" aria-selected="false" aria-controls="panel-fitko">Fitko</button>
+        <button type="button" class="cell c-fitko" role="tab" id="tab-fitko" data-room="fitko" data-floor="2" aria-selected="false" aria-controls="panel-fitko">Fitko</button>
         <div class="shaft" aria-hidden="true"></div>
-        <button type="button" class="cell c-sala" role="tab" id="tab-sala" data-room="sala" aria-selected="false" aria-controls="panel-sala">Sála</button>
+        <button type="button" class="cell c-sala" role="tab" id="tab-sala" data-room="sala" data-floor="2" aria-selected="false" aria-controls="panel-sala">Sála</button>
 
-        <button type="button" class="cell c-bar" role="tab" id="tab-bar" data-room="bar" aria-selected="false" aria-controls="panel-bar">Bar</button>
+        <button type="button" class="cell c-bar" role="tab" id="tab-bar" data-room="bar" data-floor="1" aria-selected="false" aria-controls="panel-bar">Bar</button>
         <div class="shaft" aria-hidden="true"></div>
-        <button type="button" class="cell c-kasino" role="tab" id="tab-kasino" data-room="kasino" aria-selected="false" aria-controls="panel-kasino">Kasíno</button>
+        <button type="button" class="cell c-kasino" role="tab" id="tab-kasino" data-room="kasino" data-floor="1" aria-selected="false" aria-controls="panel-kasino">Kasíno</button>
 
         <div class="void" aria-hidden="true"></div>
         <div class="shaft bottom" aria-hidden="true"></div>
-        <button type="button" class="cell c-toitoi" role="tab" id="tab-toitoi" data-room="toitoi" aria-selected="false" aria-controls="panel-toitoi">Toi Toi</button>
+        <button type="button" class="cell c-toitoi" role="tab" id="tab-toitoi" data-room="toitoi" data-floor="0" aria-selected="false" aria-controls="panel-toitoi">Toi Toi</button>
       </div>
 
       <div class="detail" aria-live="polite">
