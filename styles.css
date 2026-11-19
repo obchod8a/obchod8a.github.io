@@ -136,11 +136,16 @@ body {
 }
 
 .plan-scene {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.building-row {
   display: grid;
   grid-template-columns: 3.2rem minmax(0, 1fr) 6.8rem;
-  grid-template-rows: 1fr auto;
   gap: 0 0.55rem;
-  align-items: stretch;
+  align-items: end;
 }
 
 .yard {
@@ -196,11 +201,10 @@ body {
 .cut {
   display: grid;
   grid-template-columns: 1fr 0.48fr 1fr;
-  grid-template-rows: 2.6rem repeat(4, minmax(3.2rem, 1fr));
+  grid-template-rows: 2.6rem repeat(4, minmax(3.4rem, 4.2rem));
   border: 3px solid var(--line);
   border-bottom: 0;
   background: var(--hole);
-  min-height: min(58vh, 30rem);
   overflow: hidden;
 }
 
@@ -310,8 +314,8 @@ button.shaft-hit.is-on {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 0.45rem;
-  padding-bottom: 0;
+  gap: 0.4rem;
+  align-self: end;
 }
 
 .c-mackafe { background: #e39274; }
@@ -347,6 +351,12 @@ button.shaft-hit.is-on {
 
 .toi-lot {
   background: #b7a57a;
+}
+
+.c-fitko,
+.c-sala,
+.shaft-bottom {
+  border-bottom: 0;
 }
 
 .bike-icon {
@@ -395,7 +405,6 @@ button.shaft-hit.is-on {
 }
 
 .ground {
-  grid-column: 1 / -1;
   position: relative;
   min-height: 3.2rem;
   border: 3px solid var(--line);
@@ -572,13 +581,13 @@ button.shaft-hit.is-on {
     order: -1;
   }
 
-  .plan-scene {
+  .building-row {
     grid-template-columns: 2.4rem minmax(0, 1fr) 5.8rem;
   }
 }
 
 @media (max-width: 640px) {
-  .plan-scene {
+  .building-row {
     grid-template-columns: 1fr;
     gap: 0.45rem;
   }
@@ -592,17 +601,12 @@ button.shaft-hit.is-on {
   }
 
   .side-col {
-    order: 3;
     flex-direction: row;
   }
 
   .bike-lot,
   .toi-lot {
     border-bottom: 3px solid var(--line);
-  }
-
-  .ground {
-    order: 4;
   }
 }
 
