@@ -24,64 +24,88 @@
 
     <section class="intro">
       <h1>Rolka s dierou v strede.</h1>
-      <p>Klikni na poschodie, strechu, schody, bicykle alebo Toi Toi.</p>
+      <p>Vľavo prierez rolky. Klikni na poschodie, strechu, schody, bicykle alebo Toi Toi.</p>
     </section>
 
     <section class="stage" id="veza">
       <div class="roll-wrap" aria-label="Rolka — poschodia">
-        <svg class="roll-svg" viewBox="0 0 440 520" role="img" aria-labelledby="roll-title">
-          <title id="roll-title">HAJZEL PAPIER — klikateľná rolka</title>
+        <svg class="roll-svg" viewBox="0 0 360 480" role="img" aria-labelledby="roll-title">
+          <title id="roll-title">HAJZEL PAPIER — prierez rolky</title>
 
-          <!-- zem najprv, budova na nej -->
-          <ellipse cx="200" cy="492" rx="210" ry="28" fill="#5a8f4a" />
-          <ellipse cx="200" cy="485" rx="175" ry="18" fill="#6b5344" />
+          <!-- zem — budova stojí priamo na nej (y=420) -->
+          <rect x="10" y="420" width="340" height="48" fill="#6b5344" />
+          <rect x="10" y="420" width="340" height="18" fill="#5a8f4a" />
+          <g pointer-events="none">
+            <circle cx="28" cy="428" r="5" fill="#4f8a3f" />
+            <circle cx="48" cy="426" r="6" fill="#5f9b4c" />
+            <circle cx="330" cy="427" r="5" fill="#4f8a3f" />
+          </g>
 
-          <g class="trees" pointer-events="none">
-            <g transform="translate(6 420)">
-              <rect x="10" y="42" width="8" height="36" fill="#5a3d2b" />
-              <circle cx="14" cy="34" r="18" fill="#4f8a3f" />
-              <circle cx="4" cy="40" r="12" fill="#5f9b4c" />
-              <circle cx="24" cy="40" r="11" fill="#3f7a32" />
+          <!-- prierez: ľavá | schody | pravá, spodok = 420 -->
+          <!-- poschodie 1 / fitko+sála -->
+          <rect class="band" data-floor="2" x="40" y="350" width="100" height="70" fill="#96a0aa" />
+          <rect class="band" data-floor="2" x="180" y="350" width="100" height="70" fill="#7d8690" />
+          <!-- poschodie 2 -->
+          <rect class="band" data-floor="3" x="40" y="280" width="100" height="70" fill="#5f9bc8" />
+          <rect class="band" data-floor="3" x="180" y="280" width="100" height="70" fill="#2a3140" />
+          <!-- poschodie 3 -->
+          <rect class="band" data-floor="4" x="40" y="210" width="100" height="70" fill="#e2c043" />
+          <rect class="band" data-floor="4" x="180" y="210" width="100" height="70" fill="#c9b24a" />
+          <!-- poschodie 4 -->
+          <rect class="band" data-floor="5" x="40" y="140" width="100" height="70" fill="#e39274" />
+          <rect class="band" data-floor="5" x="180" y="140" width="100" height="70" fill="#d97b7b" />
+          <!-- strecha eko-park -->
+          <path class="band" data-floor="park" d="M40 140 V100 Q160 70 280 100 V140 Z" fill="#7fad5f" />
+
+          <!-- stredná diera / schody -->
+          <rect x="140" y="100" width="40" height="320" fill="#1a1f1c" />
+          <rect class="band" data-floor="shaft" x="148" y="108" width="24" height="304" fill="#c9b89a" opacity="0.85" />
+          <g pointer-events="none" stroke="#111" stroke-width="2">
+            <path d="M150 130 H170 M150 160 H170 M150 190 H170 M150 220 H170 M150 250 H170 M150 280 H170 M150 310 H170 M150 340 H170 M150 370 H170 M150 400 H170" />
+          </g>
+
+          <!-- obrys budovy -->
+          <g fill="none" stroke="#111" stroke-width="4" pointer-events="none">
+            <path d="M40 420 V100 Q160 70 280 100 V420" />
+            <path d="M140 100 V420 M180 100 V420" />
+            <path d="M40 350 H140 M180 350 H280" />
+            <path d="M40 280 H140 M180 280 H280" />
+            <path d="M40 210 H140 M180 210 H280" />
+            <path d="M40 140 H280" />
+          </g>
+
+          <!-- stromy NA STRECHE (eko-park) -->
+          <g class="roof-trees" pointer-events="none">
+            <g transform="translate(70 48)">
+              <rect x="8" y="28" width="5" height="18" fill="#5a3d2b" />
+              <circle cx="10" cy="22" r="12" fill="#4f8a3f" />
+              <circle cx="3" cy="26" r="8" fill="#5f9b4c" />
+            </g>
+            <g transform="translate(130 38)">
+              <rect x="8" y="30" width="5" height="20" fill="#5a3d2b" />
+              <circle cx="10" cy="24" r="14" fill="#3f7a32" />
+              <circle cx="18" cy="28" r="9" fill="#5f9b4c" />
+            </g>
+            <g transform="translate(200 45)">
+              <rect x="8" y="28" width="5" height="18" fill="#5a3d2b" />
+              <circle cx="10" cy="22" r="11" fill="#4f8a3f" />
             </g>
           </g>
 
-          <!-- spodok valca = cy 470, sedí v zemi 485 -->
-          <g class="bands">
-            <path class="band" data-floor="2" d="M70 415 V345 H330 V415 C330 445 272 470 200 470 C128 470 70 445 70 415 Z" fill="#96a0aa" />
-            <path class="band" data-floor="3" d="M70 345 V275 H330 V345 C330 375 272 400 200 400 C128 400 70 375 70 345 Z" fill="#5f9bc8" />
-            <path class="band" data-floor="4" d="M70 275 V205 H330 V275 C330 305 272 330 200 330 C128 330 70 305 70 275 Z" fill="#e2c043" />
-            <path class="band" data-floor="5" d="M70 205 V135 H330 V205 C330 235 272 260 200 260 C128 260 70 235 70 205 Z" fill="#e39274" />
-            <path class="band" data-floor="park" d="M70 135 V100 H330 V135 C330 165 272 190 200 190 C128 190 70 165 70 135 Z" fill="#6f9458" />
-          </g>
-
-          <g fill="none" stroke="#111" stroke-width="5" pointer-events="none">
-            <path d="M70 100 V415" />
-            <path d="M330 100 V415" />
-            <path d="M70 415 C70 445 128 470 200 470 C272 470 330 445 330 415" />
-            <path d="M70 345 C70 375 128 400 200 400 C272 400 330 375 330 345" />
-            <path d="M70 275 C70 305 128 330 200 330 C272 330 330 305 330 275" />
-            <path d="M70 205 C70 235 128 260 200 260 C272 260 330 235 330 205" />
-            <path d="M70 135 C70 165 128 190 200 190 C272 190 330 165 330 135" />
-          </g>
-
-          <ellipse class="band lid" data-floor="park" cx="200" cy="100" rx="130" ry="40" fill="#81a86a" stroke="#111" stroke-width="5" />
-          <ellipse cx="200" cy="100" rx="46" ry="16" fill="#1a1f1c" stroke="#111" stroke-width="4" pointer-events="none" />
-
-          <g class="stairs-roll" pointer-events="none">
-            <path d="M188 118 V460" stroke="#c9b89a" stroke-width="14" opacity="0.75" />
-            <path d="M188 140 H212 M188 170 H212 M188 200 H212 M188 230 H212 M188 260 H212 M188 290 H212 M188 320 H212 M188 350 H212 M188 380 H212 M188 410 H212 M188 440 H212" stroke="#111" stroke-width="2" opacity="0.5" />
-          </g>
-
-          <!-- bicykle + Toi Toi stoja na zemi -->
+          <!-- strom + bicykle + Toi Toi na zemi, pri budove -->
           <g pointer-events="none">
-            <circle cx="358" cy="478" r="9" fill="none" stroke="#111" stroke-width="2.5" />
-            <circle cx="382" cy="478" r="9" fill="none" stroke="#111" stroke-width="2.5" />
-            <path d="M358 478 L370 458 L380 478 M370 458 L374 467" fill="none" stroke="#111" stroke-width="2.5" />
-            <rect x="398" y="444" width="28" height="38" rx="3" fill="#b7a57a" stroke="#111" stroke-width="2.5" />
-            <text x="412" y="468" text-anchor="middle" font-size="9" font-weight="800" font-family="Bricolage Grotesque, sans-serif">TT</text>
+            <g transform="translate(292 368)">
+              <rect x="8" y="30" width="5" height="22" fill="#5a3d2b" />
+              <circle cx="10" cy="24" r="12" fill="#4f8a3f" />
+            </g>
+            <circle cx="300" cy="412" r="7" fill="none" stroke="#111" stroke-width="2" />
+            <circle cx="318" cy="412" r="7" fill="none" stroke="#111" stroke-width="2" />
+            <path d="M300 412 L308 398 L316 412 M308 398 L311 405" fill="none" stroke="#111" stroke-width="2" />
+            <rect x="328" y="382" width="22" height="30" rx="2" fill="#b7a57a" stroke="#111" stroke-width="2" />
+            <text x="339" y="401" text-anchor="middle" font-size="8" font-weight="800" font-family="Bricolage Grotesque, sans-serif">TT</text>
           </g>
         </svg>
-        <p class="roll-hint">strecha = eko-park, v diere schody · vonku bicykle + Toi Toi</p>
+        <p class="roll-hint">prierez · strecha = eko-park so stromami · v strede schody</p>
       </div>
 
       <div class="plan-scene">
