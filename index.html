@@ -24,67 +24,63 @@
 
     <section class="intro">
       <h1>Rolka s dierou v strede.</h1>
-      <p>Klikni na poschodie, strechu, schody alebo bicykle vedľa budovy.</p>
+      <p>Klikni na poschodie, strechu, schody, bicykle alebo Toi Toi.</p>
     </section>
 
     <section class="stage" id="veza">
       <div class="roll-wrap" aria-label="Rolka — poschodia">
-        <svg class="roll-svg" viewBox="0 0 420 560" role="img" aria-labelledby="roll-title">
+        <svg class="roll-svg" viewBox="0 0 440 540" role="img" aria-labelledby="roll-title">
           <title id="roll-title">HAJZEL PAPIER — klikateľná rolka</title>
 
-          <!-- zem + tráva -->
-          <ellipse cx="210" cy="520" rx="190" ry="22" fill="#5a8f4a" opacity="0.35" />
-          <ellipse cx="210" cy="515" rx="160" ry="14" fill="#6b5344" opacity="0.45" />
+          <!-- zem — budova na nej sedí -->
+          <ellipse cx="200" cy="508" rx="200" ry="26" fill="#5a8f4a" />
+          <ellipse cx="200" cy="500" rx="168" ry="16" fill="#6b5344" />
 
-          <!-- stromy okolo -->
           <g class="trees" pointer-events="none">
-            <g transform="translate(28 430)">
+            <g transform="translate(8 448)">
               <rect x="10" y="42" width="8" height="28" fill="#5a3d2b" />
               <circle cx="14" cy="34" r="18" fill="#4f8a3f" />
               <circle cx="4" cy="40" r="12" fill="#5f9b4c" />
               <circle cx="24" cy="40" r="11" fill="#3f7a32" />
             </g>
-            <g transform="translate(360 440)">
-              <rect x="10" y="36" width="7" height="24" fill="#5a3d2b" />
-              <circle cx="13" cy="30" r="15" fill="#4f8a3f" />
-              <circle cx="5" cy="36" r="10" fill="#5f9b4c" />
-            </g>
           </g>
 
-          <!-- poschodia (bez samostatného eko-parku — to je strecha) -->
           <g class="bands">
-            <path class="band" data-floor="2" d="M80 420 V350 H340 V420 C340 450 282 475 210 475 C138 475 80 450 80 420 Z" fill="#96a0aa" />
-            <path class="band" data-floor="3" d="M80 350 V280 H340 V350 C340 380 282 405 210 405 C138 405 80 380 80 350 Z" fill="#5f9bc8" />
-            <path class="band" data-floor="4" d="M80 280 V210 H340 V280 C340 310 282 335 210 335 C138 335 80 310 80 280 Z" fill="#e2c043" />
-            <path class="band" data-floor="5" d="M80 210 V140 H340 V210 C340 240 282 265 210 265 C138 265 80 240 80 210 Z" fill="#e39274" />
+            <path class="band" data-floor="2" d="M70 400 V330 H330 V400 C330 430 272 455 200 455 C128 455 70 430 70 400 Z" fill="#96a0aa" />
+            <path class="band" data-floor="3" d="M70 330 V260 H330 V330 C330 360 272 385 200 385 C128 385 70 360 70 330 Z" fill="#5f9bc8" />
+            <path class="band" data-floor="4" d="M70 260 V190 H330 V260 C330 290 272 315 200 315 C128 315 70 290 70 260 Z" fill="#e2c043" />
+            <path class="band" data-floor="5" d="M70 190 V120 H330 V190 C330 220 272 245 200 245 C128 245 70 220 70 190 Z" fill="#e39274" />
+            <path class="band" data-floor="park" d="M70 120 V88 H330 V120 C330 150 272 175 200 175 C128 175 70 150 70 120 Z" fill="#6f9458" />
           </g>
 
           <g fill="none" stroke="#111" stroke-width="5" pointer-events="none">
-            <path d="M80 100 V420" />
-            <path d="M340 100 V420" />
-            <path d="M80 420 C80 450 138 475 210 475 C282 475 340 450 340 420" />
-            <path d="M80 350 C80 380 138 405 210 405 C282 405 340 380 340 350" />
-            <path d="M80 280 C80 310 138 335 210 335 C282 335 340 310 340 280" />
-            <path d="M80 210 C80 240 138 265 210 265 C282 265 340 240 340 210" />
+            <path d="M70 88 V400" />
+            <path d="M330 88 V400" />
+            <path d="M70 400 C70 430 128 455 200 455 C272 455 330 430 330 400" />
+            <path d="M70 330 C70 360 128 385 200 385 C272 385 330 360 330 330" />
+            <path d="M70 260 C70 290 128 315 200 315 C272 315 330 290 330 260" />
+            <path d="M70 190 C70 220 128 245 200 245 C272 245 330 220 330 190" />
+            <path d="M70 120 C70 150 128 175 200 175 C272 175 330 150 330 120" />
           </g>
 
-          <!-- strecha = eko-park -->
-          <ellipse class="band lid" data-floor="park" data-room="park" cx="210" cy="100" rx="130" ry="42" fill="#81a86a" stroke="#111" stroke-width="5" />
-          <!-- diera + schody v strede -->
-          <ellipse cx="210" cy="100" rx="48" ry="17" fill="#1a1f1c" stroke="#111" stroke-width="4" pointer-events="none" />
+          <ellipse class="band lid" data-floor="park" cx="200" cy="88" rx="130" ry="40" fill="#81a86a" stroke="#111" stroke-width="5" />
+          <ellipse cx="200" cy="88" rx="46" ry="16" fill="#1a1f1c" stroke="#111" stroke-width="4" pointer-events="none" />
+
           <g class="stairs-roll" pointer-events="none">
-            <path d="M198 115 V455" stroke="#c9b89a" stroke-width="14" opacity="0.55" />
-            <path d="M198 130 H222 M198 160 H222 M198 190 H222 M198 220 H222 M198 250 H222 M198 280 H222 M198 310 H222 M198 340 H222 M198 370 H222 M198 400 H222 M198 430 H222" stroke="#111" stroke-width="2" opacity="0.45" />
+            <path d="M188 105 V445" stroke="#c9b89a" stroke-width="14" opacity="0.7" />
+            <path d="M188 125 H212 M188 155 H212 M188 185 H212 M188 215 H212 M188 245 H212 M188 275 H212 M188 305 H212 M188 335 H212 M188 365 H212 M188 395 H212 M188 425 H212" stroke="#111" stroke-width="2" opacity="0.5" />
           </g>
 
-          <!-- bicykle vedľa rolky -->
-          <g class="bike-mark" pointer-events="none">
-            <circle cx="372" cy="470" r="10" fill="none" stroke="#111" stroke-width="2.5" />
-            <circle cx="398" cy="470" r="10" fill="none" stroke="#111" stroke-width="2.5" />
-            <path d="M372 470 L384 448 L396 470 M384 448 L388 458" fill="none" stroke="#111" stroke-width="2.5" />
+          <!-- bicykle + Toi Toi na zemi -->
+          <g pointer-events="none">
+            <circle cx="360" cy="490" r="9" fill="none" stroke="#111" stroke-width="2.5" />
+            <circle cx="384" cy="490" r="9" fill="none" stroke="#111" stroke-width="2.5" />
+            <path d="M360 490 L372 470 L382 490 M372 470 L376 479" fill="none" stroke="#111" stroke-width="2.5" />
+            <rect x="400" y="458" width="28" height="36" rx="3" fill="#b7a57a" stroke="#111" stroke-width="2.5" />
+            <text x="414" y="480" text-anchor="middle" font-size="9" font-weight="800" font-family="Bricolage Grotesque, sans-serif">TT</text>
           </g>
         </svg>
-        <p class="roll-hint">strecha = eko-park · v diere schody</p>
+        <p class="roll-hint">strecha = eko-park, v diere schody · vonku bicykle + Toi Toi</p>
       </div>
 
       <div class="plan-scene">
@@ -96,11 +92,13 @@
 
         <div class="cut" role="tablist" aria-label="Miestnosti veže">
           <button type="button" class="cell park" role="tab" id="tab-park" data-room="park" data-floor="park" aria-selected="false" aria-controls="panel-park">
-            strecha · eko-park ♥
+            strecha · eko-park
           </button>
 
           <button type="button" class="cell c-mackafe" role="tab" id="tab-mackafe" data-room="mackafe" data-floor="5" aria-selected="false" aria-controls="panel-mackafe">MačKafé · Bar</button>
-          <div class="shaft" aria-hidden="true"><span class="stair-rung"></span><span class="stair-rung"></span><span class="stair-rung"></span></div>
+          <button type="button" class="shaft shaft-hit" role="tab" id="tab-schody" data-room="schody" data-floor="shaft" aria-selected="false" aria-controls="panel-schody" aria-label="Schody">
+            <span class="stair-rung"></span><span class="stair-rung"></span><span class="stair-rung"></span>
+          </button>
           <button type="button" class="cell c-resto" role="tab" id="tab-resto" data-room="resto" data-floor="5" aria-selected="false" aria-controls="panel-resto">Reštaurácie</button>
 
           <button type="button" class="cell c-potraviny" role="tab" id="tab-potraviny" data-room="potraviny" data-floor="4" aria-selected="false" aria-controls="panel-potraviny">Potraviny<br /><small>100% sk</small></button>
@@ -114,25 +112,18 @@
           <button type="button" class="cell c-fitko" role="tab" id="tab-fitko" data-room="fitko" data-floor="2" aria-selected="false" aria-controls="panel-fitko">Fitko</button>
           <div class="shaft" aria-hidden="true"><span class="stair-rung"></span><span class="stair-rung"></span><span class="stair-rung"></span></div>
           <button type="button" class="cell c-sala" role="tab" id="tab-sala" data-room="sala" data-floor="2" aria-selected="false" aria-controls="panel-sala">Sála</button>
-
-          <button type="button" class="cell stairs-btn" role="tab" id="tab-schody" data-room="schody" data-floor="shaft" aria-selected="false" aria-controls="panel-schody">
-            schody v strede
-          </button>
         </div>
 
-        <button
-          type="button"
-          class="bike-lot cell-like"
-          role="tab"
-          id="tab-bicykle"
-          data-room="bicykle"
-          data-floor="out"
-          aria-selected="false"
-          aria-controls="panel-bicykle"
-        >
-          <span class="bike-icon" aria-hidden="true"></span>
-          Parkovisko<br />bicykle
-        </button>
+        <div class="side-col">
+          <button type="button" class="bike-lot" role="tab" id="tab-bicykle" data-room="bicykle" data-floor="out" aria-selected="false" aria-controls="panel-bicykle">
+            <span class="bike-icon" aria-hidden="true"></span>
+            Parkovisko<br />bicykle
+          </button>
+          <button type="button" class="toi-lot" role="tab" id="tab-toitoi" data-room="toitoi" data-floor="out" aria-selected="false" aria-controls="panel-toitoi">
+            <span class="toi-icon" aria-hidden="true"></span>
+            Toi Toi
+          </button>
+        </div>
 
         <div class="ground">
           <span class="grass"></span>
@@ -199,13 +190,19 @@
         <article class="panel" id="panel-schody" role="tabpanel" aria-labelledby="tab-schody" hidden>
           <p class="num" style="--c:#c9b89a">Stred</p>
           <h2>Schody</h2>
-          <p class="txt">V dierе rolky — spájajú všetky poschodia od zeme až po strechu.</p>
+          <p class="txt">V diere rolky — spájajú všetky poschodia od zeme až po strechu.</p>
         </article>
 
         <article class="panel" id="panel-bicykle" role="tabpanel" aria-labelledby="tab-bicykle" hidden>
           <p class="num" style="--c:#4f8a3f">Vonku</p>
           <h2>Parkovisko pre bicykle</h2>
           <p class="txt">Vedľa budovy. Prídeš na biku, necháš ju vonku, ideš dnu po schodoch.</p>
+        </article>
+
+        <article class="panel" id="panel-toitoi" role="tabpanel" aria-labelledby="tab-toitoi" hidden>
+          <p class="num" style="--c:#b7a57a">Vonku</p>
+          <h2>Toi Toi</h2>
+          <p class="txt">Mobilné WC vedľa bicyklov. Áno — aj toto patrí k HAJZEL PAPIER.</p>
         </article>
       </div>
     </section>
@@ -228,7 +225,7 @@
       </div>
       <div class="fact">
         <span>Rieši</span>
-        <p>Labyrint bežného centra. Tu máš stred so schodmi, ľavú a pravú stranu, stromy a bicykle vonku.</p>
+        <p>Labyrint bežného centra. Tu máš stred so schodmi, ľavú a pravú stranu, stromy, bicykle a Toi Toi vonku.</p>
       </div>
       <div class="fact">
         <span>Tím</span>

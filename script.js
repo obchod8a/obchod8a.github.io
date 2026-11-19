@@ -10,9 +10,7 @@
   };
 
   const bands = Array.from(document.querySelectorAll(".band[data-floor]"));
-  const tabs = Array.from(
-    document.querySelectorAll(".cell[data-room], .bike-lot[data-room]")
-  );
+  const tabs = Array.from(document.querySelectorAll("[data-room][role='tab']"));
   const panels = Array.from(document.querySelectorAll(".panel"));
 
   if (!tabs.length) return;

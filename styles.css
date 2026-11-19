@@ -109,7 +109,7 @@ body {
 }
 
 .roll-svg {
-  width: min(100%, 18rem);
+  width: min(100%, 19rem);
   height: auto;
   display: block;
   max-height: 70vh;
@@ -137,17 +137,15 @@ body {
 
 .plan-scene {
   display: grid;
-  grid-template-columns: 3.2rem minmax(0, 1fr) 6.5rem;
+  grid-template-columns: 3.2rem minmax(0, 1fr) 6.8rem;
   grid-template-rows: 1fr auto;
-  gap: 0.55rem 0.55rem;
+  gap: 0 0.55rem;
   align-items: stretch;
 }
 
 .yard {
   position: relative;
-  background:
-    linear-gradient(180deg, transparent 55%, rgba(111, 168, 90, 0.35) 100%);
-  border-radius: 0.25rem;
+  background: linear-gradient(180deg, transparent 55%, rgba(111, 168, 90, 0.35) 100%);
   overflow: hidden;
 }
 
@@ -198,10 +196,12 @@ body {
 .cut {
   display: grid;
   grid-template-columns: 1fr 0.48fr 1fr;
-  grid-template-rows: auto repeat(4, minmax(3rem, 1fr)) auto;
+  grid-template-rows: 2.6rem repeat(4, minmax(3.2rem, 1fr));
   border: 3px solid var(--line);
+  border-bottom: 0;
   background: var(--hole);
-  min-height: min(62vh, 32rem);
+  min-height: min(58vh, 30rem);
+  overflow: hidden;
 }
 
 .cell {
@@ -234,7 +234,9 @@ body {
 .cell:hover,
 .cell:focus-visible,
 .bike-lot:hover,
-.bike-lot:focus-visible {
+.bike-lot:focus-visible,
+.toi-lot:hover,
+.toi-lot:focus-visible {
   filter: brightness(1.06);
   outline: 2px solid #fff;
   outline-offset: -5px;
@@ -242,7 +244,8 @@ body {
 }
 
 .cell.is-on,
-.bike-lot.is-on {
+.bike-lot.is-on,
+.toi-lot.is-on {
   filter: brightness(1.08);
   outline: 3px solid #fff;
   outline-offset: -5px;
@@ -257,9 +260,10 @@ body {
 .park {
   grid-column: 1 / -1;
   border-right: 0;
-  border-radius: 50% 50% 0 0 / 28% 28% 0 0;
+  border-radius: 0;
   background: #7fad5f;
-  min-height: 3rem;
+  min-height: 0;
+  padding: 0.35rem 0.5rem;
 }
 
 .shaft {
@@ -267,12 +271,31 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.08);
+  border-right: 3px solid var(--line);
   background:
     linear-gradient(90deg, transparent 38%, #c9b89a 38% 62%, transparent 62%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 40%),
     var(--hole);
-  border-bottom: 3px solid rgba(255, 255, 255, 0.08);
-  border-right: 3px solid var(--line);
+  color: inherit;
+  font: inherit;
+  cursor: default;
+}
+
+button.shaft-hit {
+  cursor: pointer;
+  appearance: none;
+}
+
+button.shaft-hit:hover,
+button.shaft-hit:focus-visible,
+button.shaft-hit.is-on {
+  filter: brightness(1.15);
+  outline: 2px solid #fff;
+  outline-offset: -4px;
 }
 
 .stair-rung {
@@ -280,14 +303,15 @@ body {
   height: 3px;
   background: #111;
   opacity: 0.55;
+  pointer-events: none;
 }
 
-.stairs-btn {
-  grid-column: 1 / -1;
-  border-right: 0;
-  border-bottom: 0;
-  background: #c9b89a;
-  font-size: 0.85rem;
+.side-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.45rem;
+  padding-bottom: 0;
 }
 
 .c-mackafe { background: #e39274; }
@@ -299,29 +323,37 @@ body {
 .c-sala { background: #7d8690; color: #f4f1ea; border-right: 0; }
 .c-kasino { background: #2a3140; color: #f4f1ea; border-right: 0; }
 
-.bike-lot {
+.bike-lot,
+.toi-lot {
   appearance: none;
-  align-self: center;
   margin: 0;
   border: 3px solid var(--line);
-  background: #d7e6cf;
+  border-bottom: 0;
   color: var(--ink);
   font: inherit;
   font-weight: 800;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   letter-spacing: -0.02em;
   line-height: 1.2;
   text-align: center;
   cursor: pointer;
-  padding: 0.85rem 0.45rem;
-  min-height: 8rem;
+  padding: 0.65rem 0.35rem;
+  width: 100%;
+}
+
+.bike-lot {
+  background: #d7e6cf;
+}
+
+.toi-lot {
+  background: #b7a57a;
 }
 
 .bike-icon {
   display: block;
   width: 2.4rem;
-  height: 1.4rem;
-  margin: 0 auto 0.45rem;
+  height: 1.3rem;
+  margin: 0 auto 0.35rem;
   position: relative;
 }
 
@@ -330,14 +362,37 @@ body {
   content: "";
   position: absolute;
   bottom: 0;
-  width: 0.95rem;
-  height: 0.95rem;
+  width: 0.9rem;
+  height: 0.9rem;
   border: 2.5px solid var(--ink);
   border-radius: 50%;
 }
 
 .bike-icon::before { left: 0; }
 .bike-icon::after { right: 0; }
+
+.toi-icon {
+  display: block;
+  width: 1.35rem;
+  height: 1.7rem;
+  margin: 0 auto 0.3rem;
+  border: 2.5px solid var(--ink);
+  border-radius: 0.2rem;
+  background: #cfc0a0;
+  position: relative;
+}
+
+.toi-icon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0.35rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
 
 .ground {
   grid-column: 1 / -1;
@@ -518,22 +573,36 @@ body {
   }
 
   .plan-scene {
-    grid-template-columns: 2.4rem minmax(0, 1fr) 5.5rem;
+    grid-template-columns: 2.4rem minmax(0, 1fr) 5.8rem;
   }
 }
 
 @media (max-width: 640px) {
   .plan-scene {
     grid-template-columns: 1fr;
+    gap: 0.45rem;
   }
 
   .yard {
     display: none;
   }
 
-  .bike-lot {
-    min-height: 0;
-    padding: 0.75rem;
+  .cut {
+    border-bottom: 3px solid var(--line);
+  }
+
+  .side-col {
+    order: 3;
+    flex-direction: row;
+  }
+
+  .bike-lot,
+  .toi-lot {
+    border-bottom: 3px solid var(--line);
+  }
+
+  .ground {
+    order: 4;
   }
 }
 
