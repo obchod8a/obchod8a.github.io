@@ -1,4 +1,4 @@
-# moderný obchod
+﻿# Ekobchod
 
 Jednoduchá statická stránka pripravená na [GitHub Pages](https://pages.github.com/).
 
